@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livia Zanotelo - Nail Designer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff69b4;
+            --accent-color: #ff1493;
+            --gold-color: #FFD700;
+        }
+        html, body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #000000;
+        }
+        body {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background-image: url('img/logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.03;
+            filter: brightness(0.8);
+            z-index: -1;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+            padding: 20px;
+        }
+        .card {
+            max-width: 450px;
+            width: 100%;
+            border-radius: 25px;
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin: 20px auto;
+        }
+        .logo-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+        .logo-img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+            mix-blend-mode: screen;
+        }
+        .logo-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 220px;
+            height: 220px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            filter: blur(35px);
+            opacity: 0.15;
+            z-index: 1;
+        }
+        .name-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 0;
+        }
+        .name-text {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--gold-color);
+            letter-spacing: 1px;
+            line-height: 1.2;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            white-space: nowrap;
+        }
+        .verified-badge {
+            color: var(--gold-color);
+            font-size: 1.8rem;
+            margin-top: 5px;
+        }
+        .subtitle {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin: 10px 0 30px;
+        }
+        .location-info {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .location-info i {
+            color: var(--primary-color);
+        }
+        .description {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            margin: 35px 0;
+            color: #ffffff;
+        }
+        .description span {
+            font-size: 1rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+            padding: 0 10px;
+            transition: all 0.3s ease;
+        }
+        .description span:hover {
+            color: var(--gold-color);
+            letter-spacing: 5px;
+        }
+        .description span:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: -9px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+        .action-btn {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+        .action-btn:hover {
+            background: rgba(255, 105, 180, 0.1);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+        }
+        .action-btn i {
+            font-size: 1.2rem;
+        }
+        .location-btn i {
+            color: var(--primary-color);
+        }
+        .whatsapp-btn i {
+            color: var(--primary-color);
+        }
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .social-icons {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 105, 180, 0.2);
+        }
+        .social-icons a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            border-color: var(--primary-color);
+            background: rgba(255, 105, 180, 0.1);
+        }
+        .credits {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .credits-btn {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .credits-btn:hover {
+            color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+        .credits-btn i {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card mx-auto">
+            <div class="logo-container">
+                <div class="logo-glow"></div>
+                <img src="img/logo.png" alt="Livia Zanotelo Logo" class="logo-img">
+            </div>
+            
+            <div class="name-container">
+                <h1 class="name-text">Livia Zanotelo</h1>
+                <i class="fas fa-certificate verified-badge"></i>
+            </div>
+            <p class="subtitle">Nail Design</p>
+            
+            <div class="description">
+                <span>Nail Designer</span>
+                <span>Manicure</span>
+                <span>Empreendedora!</span>
+            </div>
+
+            <div class="buttons-container">
+                <a href="https://maps.app.goo.gl/8AWae6BASKApepuo9" target="_blank" class="action-btn location-btn">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Ver Localização
+                </a>
+
+                <a href="https://wa.me/5517992242065?text=Olá%2C%20vim%20pelo%20seu%20cartão%20digital%20e%20gostaria%20de%20estar%20agendando%20um%20horario." 
+                   class="action-btn whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    Agendar Horário
+                </a>
+            </div>
+
+            <div class="social-icons">
+                <a href="https://www.instagram.com/liviazanotelo.naildesigner?igsh=MWpkbGU2eWE3aGdiZg==" 
+                   target="_blank" 
+                   title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/share/2hjhQ6JzBKytPLn1/?mibextid=kFxxJD" 
+                   target="_blank" 
+                   title="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+
+            <div class="credits">
+                <a href="https://wa.me/5517999754390?text=Olá,%20gostaria%20de%20criar%20meu%20cartão%20digital!" 
+                   class="credits-btn" 
+                   target="_blank">
+                    Desenvolvido com <i class="fas fa-heart"></i> por DGSolution web • crie o seu também!
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
